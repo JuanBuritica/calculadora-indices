@@ -24,13 +24,16 @@ body {
     font-family: var(--font-main);
     background-color: var(--bg-color);
     color: var(--text-primary);
-    min-height: 100vh;
+    min-height: 100dvh;
+    /* Dynamic viewport height */
     overflow-x: hidden;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
+    display: grid;
+    /* Creating a grid container */
+    place-items: center;
+    /* Centering content safely */
+    padding: 1rem;
+    /* Reduced outer padding */
 }
 
 /* Background Blobs */
@@ -42,6 +45,8 @@ body {
     height: 100%;
     z-index: -1;
     overflow: hidden;
+    pointer-events: none;
+    /* Ensure clicks pass through */
 }
 
 .blob {
@@ -91,19 +96,22 @@ body {
 /* Container */
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
+    /* Slightly reduced max-width */
     z-index: 10;
 }
 
 .app-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    /* Reduced from 3rem */
 }
 
 .app-header h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
+    /* Reduced from 3rem */
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .app-header .accent {
@@ -114,14 +122,17 @@ body {
 
 .app-header p {
     color: var(--text-secondary);
-    font-size: 1.2rem;
+    font-size: 1rem;
+    /* Reduced from 1.2rem */
 }
 
 /* Grid Layout */
 .grid-layout {
     display: grid;
-    grid-template-columns: 350px 1fr;
-    gap: 2rem;
+    grid-template-columns: 320px 1fr;
+    /* Reduced sidebar width */
+    gap: 1.5rem;
+    /* Reduced gap */
     align-items: start;
 }
 
@@ -131,40 +142,43 @@ body {
     backdrop-filter: blur(12px);
     border: var(--card-border);
     border-radius: var(--radius);
-    padding: 2rem;
+    padding: 1.5rem;
+    /* Reduced padding from 2rem */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Input Form */
 .input-card h2 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    /* Reduced spacing */
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
 }
 
 input[type="number"],
 select {
     width: 100%;
-    padding: 0.8rem 1rem;
+    padding: 0.6rem 0.8rem;
+    /* Slightly smaller input padding */
     background: var(--input-bg);
     border: 1px solid var(--input-border);
     border-radius: 8px;
     color: var(--text-primary);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-family: inherit;
     transition: all 0.3s ease;
 }
@@ -187,7 +201,7 @@ select:focus {
 }
 
 .unit-selector {
-    width: 80px;
+    width: 70px;
     background: rgba(30, 41, 59, 0.8);
     font-weight: 600;
 }
@@ -196,7 +210,7 @@ select:focus {
 .radio-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .radio-card {
@@ -213,12 +227,13 @@ select:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.8rem;
+    padding: 0.6rem;
     background: var(--input-bg);
     border: 1px solid var(--input-border);
     border-radius: 8px;
     transition: all 0.3s ease;
     font-weight: 600;
+    font-size: 0.9rem;
 }
 
 .radio-card input:checked+.radio-content {
@@ -230,16 +245,17 @@ select:focus {
 /* Button */
 .btn-primary {
     width: 100%;
-    padding: 1rem;
+    padding: 0.8rem;
     background: var(--accent-gradient);
     border: none;
     border-radius: 8px;
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     font-family: inherit;
+    margin-top: 0.5rem;
 }
 
 .btn-primary:hover {
@@ -255,19 +271,21 @@ select:focus {
 .results-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 1rem;
+    /* Reduced gap */
 }
 
 .result-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 160px;
+    min-height: 140px;
+    /* Reduced min-height */
     transition: transform 0.3s ease;
 }
 
 .result-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     background: rgba(30, 41, 59, 0.9);
 }
 
@@ -275,27 +293,28 @@ select:focus {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .card-header h3 {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .badge {
-    padding: 0.25rem 0.75rem;
+    padding: 0.2rem 0.6rem;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: var(--text-primary);
 }
 
 .result-value {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    /* Reduced font size */
     font-weight: 700;
     background: linear-gradient(to right, #fff, #cbd5e1);
     -webkit-background-clip: text;
@@ -303,12 +322,12 @@ select:focus {
 }
 
 .result-value.smaller {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 .result-desc {
-    margin-top: 0.5rem;
-    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
     color: var(--text-secondary);
 }
 
@@ -316,10 +335,44 @@ select:focus {
     grid-column: span 2;
 }
 
+/* Compact Mode for small screens height-wise */
+@media (max-height: 850px) {
+    .container {
+        max-width: 1000px;
+    }
+
+    .app-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .app-header h1 {
+        font-size: 2rem;
+    }
+
+    .card {
+        padding: 1.25rem;
+    }
+
+    .grid-layout {
+        gap: 1rem;
+    }
+
+    .result-value {
+        font-size: 2rem;
+    }
+
+    .form-group {
+        margin-bottom: 0.75rem;
+    }
+}
+
 /* Responsive */
 @media (max-width: 900px) {
     .grid-layout {
         grid-template-columns: 1fr;
+        max-width: 500px;
+        /* Ensure it doesn't get too wide on tablet portrait */
+        margin: 0 auto;
     }
 
     .results-grid {
@@ -329,7 +382,7 @@ select:focus {
 
 @media (max-width: 600px) {
     .app-header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .results-grid {
@@ -342,5 +395,11 @@ select:focus {
 
     body {
         padding: 1rem;
+        display: block;
+        /* On mobile, let it scroll naturally */
+    }
+
+    .container {
+        margin: 0;
     }
 }
