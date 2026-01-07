@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Índices Corporales</title>
+    <meta name="description" content="Calculadora completa de IMC, Grasa Corporal y Metabolismo Basal.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header class="app-header">
+            <h1>BioMetrics <span class="accent">Plus</span></h1>
+            <p>Calculadora integral de salud y bienestar</p>
+        </header>
+
+        <div class="grid-layout">
+            <!-- INPUT SECTION -->
+            <section class="card input-card">
+                <h2><span class="icon">📝</span> Tus Datos</h2>
+                <form id="calculatorForm">
+                    <div class="form-group">
+                        <label for="peso">Peso (kg)</label>
+                        <input type="number" id="peso" placeholder="70" step="0.1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="altura">Altura</label>
+                        <div class="input-group">
+                            <input type="number" id="altura" placeholder="1.75" step="0.01" required>
+                            <select id="altura-unidad" class="unit-selector">
+                                <option value="m">m</option>
+                                <option value="cm">cm</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edad">Edad (años)</label>
+                        <input type="number" id="edad" placeholder="25" step="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Género</label>
+                        <div class="radio-group">
+                            <label class="radio-card">
+                                <input type="radio" name="genero" value="male" checked>
+                                <span class="radio-content">Masculino</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="genero" value="female">
+                                <span class="radio-content">Femenino</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="actividad">Nivel de Actividad</label>
+                        <select id="actividad" required>
+                            <option value="1.2">Poco o ningún ejercicio</option>
+                            <option value="1.375">Ejercicio ligero (1-3 días/sem)</option>
+                            <option value="1.55">Ejercicio moderado (3-5 días/sem)</option>
+                            <option value="1.72">Deportista (6-7 días/sem)</option>
+                            <option value="1.9">Atleta (mañana y tarde)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="objetivo">Objetivo</label>
+                        <select id="objetivo" required>
+                            <option value="lose">Adelgazar</option>
+                            <option value="maintain">Mantener Peso</option>
+                            <option value="gain">Ganar Masa Muscular</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Calcular</button>
+                </form>
+            </section>
+
+            <!-- RESULTS SECTION -->
+            <section class="results-grid">
+                <!-- IMC Card -->
+                <div class="card result-card" id="card-imc">
+                    <div class="card-header">
+                        <h3>IMC</h3>
+                        <span class="badge" id="imc-category">--</span>
+                    </div>
+                    <div class="result-value" id="imc-value">--</div>
+                    <p class="result-desc">Índice de Masa Corporal</p>
+                </div>
+
+                <!-- GC Card -->
+                <div class="card result-card" id="card-gc">
+                    <div class="card-header">
+                        <h3>% Grasa</h3>
+                    </div>
+                    <div class="result-value" id="gc-value">--%</div>
+                    <p class="result-desc">Porcentaje de Grasa Corporal</p>
+                </div>
+
+                <!-- TMB Card -->
+                <div class="card result-card" id="card-tmb">
+                    <div class="card-header">
+                        <h3>TMB (Reposo)</h3>
+                    </div>
+                    <div class="result-value" id="tmb-value">--</div>
+                    <p class="result-desc">Calorías quemadas en reposo</p>
+                </div>
+
+                <!-- TDEE Card -->
+                <div class="card result-card" id="card-tdee">
+                    <div class="card-header">
+                        <h3>TMB (Actividad)</h3>
+                    </div>
+                    <div class="result-value" id="tdee-value">--</div>
+                    <p class="result-desc">Calorías diarias de mantenimiento</p>
+                </div>
+
+                <!-- Weight Loss Card -->
+                <div class="card result-card span-col" id="card-loss">
+                    <div class="card-header">
+                        <h3>Objetivo: Adelgazar</h3>
+                    </div>
+                    <div class="result-value smaller" id="loss-value">-- - --</div>
+                    <p class="result-desc">Rango calórico recomendado (80% - 85% TMB)</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
